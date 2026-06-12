@@ -11,8 +11,8 @@ public class Backtracking {
         mejorSolucion = null;
         menorPesoPerdido = Double.MAX_VALUE;
         cantidad = 0;
-        //ver si ordeno o no los paquetes 
-        //paquetes.sort(Comparator.comparing(Paquete::getPeso_kg).reversed());
+        // ver si ordeno o no los paquetes
+        // paquetes.sort(Comparator.comparing(Paquete::getPeso_kg).reversed());
         back(paquetes, camiones, 0, 0);
         mejorSolucion.setMetrica(cantidad);
         return mejorSolucion;
@@ -20,30 +20,27 @@ public class Backtracking {
 
     private void back(List<Paquete> paquetes, List<Camion> camiones, int index, double pesoPerdidoActual) {
         cantidad++;
-       
-        if (pesoPerdidoActual >= menorPesoPerdido) 
-            return;
-        
         if (index == paquetes.size()) {
-            menorPesoPerdido = pesoPerdidoActual;
-            guardarMejorSolucion(camiones, pesoPerdidoActual);
-            return;
-        }
-
-        Paquete p = paquetes.get(index);
-
-        for (Camion c : camiones) {
-            if (c.puedeTransportar(p)) {
-                c.agregarPaquete(p);
-                back(paquetes, camiones, index + 1, pesoPerdidoActual);
-                c.eliminarPaquete(p); 
+            if (pesoPerdidoActual < menorPesoPerdido) {
+                menorPesoPerdido = pesoPerdidoActual;
+                guardarMejorSolucion(camiones, pesoPerdidoActual);
             }
+        } else if (pesoPerdidoActual < menorPesoPerdido) {
+            Paquete p = paquetes.get(index);
+
+            for (Camion c : camiones) {
+                if (c.puedeTransportar(p)) {
+                    c.agregarPaquete(p);
+                    back(paquetes, camiones, index + 1, pesoPerdidoActual);
+                    c.eliminarPaquete(p);
+                }
+            }
+            back(paquetes, camiones, index + 1, pesoPerdidoActual + p.getPeso_kg());
         }
-        back(paquetes, camiones, index + 1, pesoPerdidoActual + p.getPeso_kg());
     }
 
     private void guardarMejorSolucion(List<Camion> camiones,
-                                      double pesoPerdidoActual) {
+            double pesoPerdidoActual) {
         Solucion s = new Solucion();
         s.setPesoNoAsignado(pesoPerdidoActual);
         s.setMetrica(cantidad);
@@ -53,6 +50,6 @@ public class Backtracking {
             }
         }
         mejorSolucion = s;
-        
+
     }
 }
