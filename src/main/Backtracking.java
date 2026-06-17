@@ -11,8 +11,7 @@ public class Backtracking {
         mejorSolucion = null;
         menorPesoPerdido = Double.MAX_VALUE;
         cantidad = 0;
-        // ver si ordeno o no los paquetes
-        // paquetes.sort(Comparator.comparing(Paquete::getPeso_kg).reversed());
+
         back(paquetes, camiones, 0, 0);
         mejorSolucion.setMetrica(cantidad);
         return mejorSolucion;
@@ -27,15 +26,18 @@ public class Backtracking {
             }
         } else if (pesoPerdidoActual < menorPesoPerdido) {
             Paquete p = paquetes.get(index);
-
+            boolean asigno = false;
             for (Camion c : camiones) {
                 if (c.puedeTransportar(p)) {
                     c.agregarPaquete(p);
                     back(paquetes, camiones, index + 1, pesoPerdidoActual);
+                    asigno = true;
                     c.eliminarPaquete(p);
                 }
             }
-            back(paquetes, camiones, index + 1, pesoPerdidoActual + p.getPeso_kg());
+            if (!asigno)
+                back(paquetes, camiones, index + 1, pesoPerdidoActual + p.getPeso_kg());
+
         }
     }
 

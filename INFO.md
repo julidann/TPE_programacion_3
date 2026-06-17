@@ -63,6 +63,97 @@ El CSVreader funciona (lo saqué de un tutorial de youtube)
             =====================================
             Peso no asignado: 0.0 kg
             Candidatos considerados: 13
+## si hago el nuevo codigo mio  de greedy da 
+ID Camión: 100
+Patente: AAA000A
+Capacidad: 100.0 kg
+Refrigerado: true
+Paquetes asignados:
 
+- Código paquete: P001
+- Peso: 30.0 kg
+- Urgencia: 80
+- Alimentos: true
+
+- Código paquete: P004
+- Peso: 25.0 kg
+- Urgencia: 100
+- Alimentos: true
+
+____________________________________________________________
+ID Camión: 101
+Patente: AAA001B
+Capacidad: 500.0 kg
+Refrigerado: false
+Paquetes asignados:
+
+- Código paquete: P003
+- Peso: 80.0 kg
+- Urgencia: 10
+- Alimentos: false
+
+____________________________________________________________
+ID Camión: 102
+Patente: AAA002C
+Capacidad: 115.0 kg
+Refrigerado: true
+Paquetes asignados:
+
+- Código paquete: P002
+- Peso: 100.0 kg
+- Urgencia: 2
+- Alimentos: false
+
+____________________________________________________________
+Peso no asignado: 0.0 kg
+
+Candidatos considerados: 12
+
+----------------------------------------------------------
+## en el viejo 
+ID Camión: 102
+Patente: AAA002C
+Capacidad: 115.0 kg
+Refrigerado: true
+Paquetes asignados:
+
+- Código paquete: P001
+- Peso: 30.0 kg
+- Urgencia: 80
+- Alimentos: true
+
+- Código paquete: P004
+- Peso: 25.0 kg
+- Urgencia: 100
+- Alimentos: true
+
+____________________________________________________________
+ID Camión: 101
+Patente: AAA001B
+Capacidad: 500.0 kg
+Refrigerado: false
+Paquetes asignados:
+
+- Código paquete: P003
+- Peso: 80.0 kg
+- Urgencia: 10
+- Alimentos: false
+
+____________________________________________________________
+ID Camión: 100
+Patente: AAA000A
+Capacidad: 100.0 kg
+Refrigerado: true
+Paquetes asignados:
+
+- Código paquete: P002
+- Peso: 100.0 kg
+- Urgencia: 2
+- Alimentos: false
+
+____________________________________________________________
+Peso no asignado: 0.0 kg
+
+Candidatos considerados: 9
 
 

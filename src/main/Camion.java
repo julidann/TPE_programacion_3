@@ -1,4 +1,5 @@
 package src.main;
+
 import java.util.*;
 
 public class Camion {
@@ -78,17 +79,20 @@ public class Camion {
     }
 
     public double getCapacidad_disponible() {
-        return capacidad_disponible;
+        double disponible = getCapacidad_kg();
+        for (Paquete p : paquetes) {
+            disponible -= p.getPeso_kg();
+        }
+        return disponible;
     }
 
-
     @Override
-public String toString() {
-    return "\n__________________________" +
-           "\nID Camión: " + id_camion +
-           "\nPatente: " + patente +
-           "\nRefrigerado: " + esta_refrigerado +
-           "\nCapacidad total: " + capacidad_kg + "kg" + 
-           "\nCapacidad disponible: " + capacidad_disponible;           
-}
+    public String toString() {
+        return "\n__________________________" +
+                "\nID Camión: " + id_camion +
+                "\nPatente: " + patente +
+                "\nRefrigerado: " + esta_refrigerado +
+                "\nCapacidad total: " + capacidad_kg + "kg" +
+                "\nCapacidad disponible: " + capacidad_disponible;
+    }
 }
