@@ -24,11 +24,9 @@ public class Backtracking {
      * ESTRATEGIA:
      Usamos backtracking para recorrer todas las combinaciones posibles de carga.
      En cada paso, agarramos el 'paqueteActual' y probamos meterlo en cada camión disponible que tenga espacio y cumpla con las reglas (capacidad de carga y refrigeración).
-     
-     Además de probar los camiones, probamos todas las opciones: o meter el paquete en los camiones o dejarlo afuera. No dar por sentado que hay que subir un paquete solo porque hay espacio nos asegura que el algoritmo analice todas las variables y encuentre la distribución más eficiente de todas.
-
+     Además de probar los camiones, probamos todas las opciones: o meter el paquete en los camiones o dejarlo afuera. 
+     No dar por sentado que hay que subir un paquete solo porque hay espacio nos asegura que el algoritmo analice todas las variables y encuentre la distribución más eficiente de todas.
      Realizamos la poda: : si el peso perdido que venimos acumulando ya iguala o supera al mejor 'menorPesoPerdido', esa rama se descarta y volvemos atrás. 
-
      Si logramos pasar todas las podas y llegamos al final de  la lista de paquetes, encontramos un nuevo 'menorPesoPerdido', guardamos la solución y se actualiza la métrica.
      */
 
@@ -58,8 +56,7 @@ public class Backtracking {
         }
     }
 
-    private void guardarMejorSolucion(List<Camion> camiones,
-            double pesoPerdidoActual) {
+    private void guardarMejorSolucion(List<Camion> camiones, double pesoPerdidoActual) {
         Solucion s = new Solucion();
         s.setPesoNoAsignado(pesoPerdidoActual);
         s.setMetrica(cantidadEstados);
